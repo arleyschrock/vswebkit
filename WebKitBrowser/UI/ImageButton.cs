@@ -15,28 +15,6 @@ namespace WebKitBrowser.UI
         public ImageButton()
         {
             InitializeComponent();
-
-            BindEvents();
-        }
-
-        private void BindEvents()
-        {
-            var src = typeof(PictureBox).GetEvents();
-            var tgt = typeof(ImageButton).GetEvents();
-            foreach (var ev in src)
-            {
-                var target = tgt.FirstOrDefault(x => x.Name == ev.Name);
-                if (target == null)
-                {
-                    continue;
-                }
-                try
-                {
-                    target.AddEventHandler(this,
-                        ev.RaiseMethod.CreateDelegate(ev.DeclaringType));
-                }
-                catch { }
-            }
         }
 
         [Browsable(true), DisplayName("Background Image")]
@@ -50,6 +28,11 @@ namespace WebKitBrowser.UI
             {
                 pictureBox1.Image = value;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OnClick(e);
         }
     }
 }
