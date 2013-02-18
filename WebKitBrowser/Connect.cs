@@ -34,9 +34,9 @@ namespace WebKitBrowser
 
                 try
                 {
-                    var command = commands.AddNamedCommand2(_addInInstance, "WebKitBrowser", "WebKit Browser", 
-                        "Executes the command for WebKitBrowser", true, 59, ref contextGUIDS, 
-                        (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled, 
+                    var command = commands.AddNamedCommand2(_addInInstance, "WebKitBrowser", "WebKit Browser",
+                        "Executes the command for WebKitBrowser", true, 59, ref contextGUIDS,
+                        (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled,
                         (int)vsCommandStyle.vsCommandStyleText, vsCommandControlType.vsCommandControlTypeButton);
 
                     if ((command != null) && (viewPopup != null))
@@ -99,15 +99,15 @@ namespace WebKitBrowser
 
         private Window CreateBrowserWindow()
         {
+            Window window = null;
             try
             {
                 var form = new UI.BrowserForm();
                 object obj = (object)form;
-                dynamic v = this._applicationObject;
-                EnvDTE.DTE dte = (dynamic)_applicationObject;
-                Windows2 win2 = (Windows2)dte.Windows;
 
-                return win2.CreateToolWindow2(_addInInstance, GetType().Assembly.Location,
+                Windows2 win2 = (Windows2)_applicationObject.Windows;
+
+                window = win2.CreateToolWindow2(_addInInstance, GetType().Assembly.Location,
                     typeof(UI.BrowserForm).FullName, "Webkit Browser", form.UID, ref obj);
             }
             catch (Exception e)
@@ -116,7 +116,7 @@ namespace WebKitBrowser
                 System.Windows.Forms.MessageBox.Show(e.Message);
 #endif
             }
-            return null;
+            return window;
         }
 
         private DTE2 _applicationObject;

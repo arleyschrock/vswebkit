@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WebKitBrowser.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SearchUrlPattern" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.bing.com/search?q={0}</Value>
+    </Setting>
+    <Setting Name="AllowMultiple" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="HomePage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.bing.com</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.addressBox = new Awesomium.Windows.Forms.AddressBox();
             this.webControl1 = new Awesomium.Windows.Forms.WebControl();
             this.navHome = new WebKitBrowser.UI.ImageButton();
             this.navRefresh = new WebKitBrowser.UI.ImageButton();
@@ -38,6 +37,7 @@
             this.navPrevious = new WebKitBrowser.UI.ImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.navSubmit = new WebKitBrowser.UI.ImageButton();
+            this.addressBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -69,20 +69,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.panel3.Size = new System.Drawing.Size(712, 24);
             this.panel3.TabIndex = 5;
-            // 
-            // addressBox
-            // 
-            this.addressBox.AcceptsReturn = true;
-            this.addressBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.addressBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.addressBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addressBox.Location = new System.Drawing.Point(0, 2);
-            this.addressBox.Name = "addressBox";
-            this.addressBox.Size = new System.Drawing.Size(712, 20);
-            this.addressBox.TabIndex = 0;
-            this.addressBox.URL = null;
-            this.addressBox.WebControl = this.webControl1;
-            this.addressBox.Navigate += new System.EventHandler<Awesomium.Core.UrlEventArgs>(this.addressBox_Navigate);
             // 
             // webControl1
             // 
@@ -168,6 +154,16 @@
             this.navSubmit.TabIndex = 5;
             this.navSubmit.Click += new System.EventHandler(this.navSubmit_Click);
             // 
+            // addressBox
+            // 
+            this.addressBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addressBox.Location = new System.Drawing.Point(0, 2);
+            this.addressBox.Name = "addressBox";
+            this.addressBox.Size = new System.Drawing.Size(712, 20);
+            this.addressBox.TabIndex = 0;
+            this.addressBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addressBox_KeyDown);
+            this.addressBox.Validating += new System.ComponentModel.CancelEventHandler(this.addressBox_Validating);
+            // 
             // BrowserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,7 +187,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private Awesomium.Windows.Forms.AddressBox addressBox;
         private ImageButton navHome;
         private ImageButton navRefresh;
         private ImageButton navForward;
@@ -199,6 +194,7 @@
         private System.Windows.Forms.Panel panel2;
         private ImageButton navSubmit;
         private Awesomium.Windows.Forms.WebControl webControl1;
+        private System.Windows.Forms.TextBox addressBox;
 
     }
 }
